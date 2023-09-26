@@ -5,9 +5,9 @@ pub struct Factorial<const M: i64> {
 
 impl<const M: i64> Factorial<M> {
     pub fn new(n: usize) -> Self {
-        let mut fact = vec![1; n];
-        let mut inv = vec![1; n];
-        let mut fact_inv = vec![1; n];
+        let mut fact = vec![1; n + 1];
+        let mut inv = vec![1; n + 1];
+        let mut fact_inv = vec![1; n + 1];
         for i in 2..n + 1 {
             fact[i] = fact[i - 1] * i as i64 % M;
             inv[i] = inv[(M % i as i64) as usize] * (M - M / i as i64) % M;
