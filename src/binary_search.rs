@@ -1,5 +1,3 @@
-use std::ops::*;
-
 pub fn first_true<F: Fn(i64) -> bool>(mut lo: i64, mut hi: i64, f: F) -> i64 {
     hi += 1;
     while lo < hi {

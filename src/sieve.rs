@@ -3,7 +3,7 @@ pub struct Sieve {
     prime_divisor: Vec<usize>,
 }
 impl Sieve {
-    pub fn new(n: usize) -> Sieve {
+    pub fn new(n: usize) -> Self {
         let mut primes = Vec::new();
         let mut prime_divisor: Vec<usize> = (0..n + 1).collect();
         for i in 2..n + 1 {

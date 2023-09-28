@@ -1,13 +1,12 @@
 use std::cmp::max;
 
 pub struct LCA {
-    k: usize,
     tin: Vec<i32>,
     tout: Vec<i32>,
     up: Vec<Vec<usize>>,
 }
 impl LCA {
-    pub fn compute(graph: &Vec<Vec<usize>>, root: usize) -> LCA {
+    pub fn compute(graph: &Vec<Vec<usize>>, root: usize) -> Self {
         let n = graph.len();
         let mut tin = vec![0; n];
         let mut tout = vec![0; n];
@@ -48,7 +47,7 @@ impl LCA {
                 up[i][j] = up[i - 1][up[i - 1][j]];
             }
         }
-        LCA { k, tin, tout, up }
+        LCA { tin, tout, up }
     }
     pub fn lca(&self, u: usize, v: usize) -> usize {
         if self.is_ancestor(u, v) {
@@ -58,7 +57,7 @@ impl LCA {
             return v;
         }
         let mut ancestor = u;
-        for i in (0..self.k).rev() {
+        for i in (0..self.up.len()).rev() {
             if !self.is_ancestor(self.up[i][ancestor], v) {
                 ancestor = self.up[i][ancestor];
             }

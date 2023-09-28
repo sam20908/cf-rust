@@ -5,7 +5,7 @@ pub struct Modnum<const M: i64> {
     x: i64,
 }
 impl<const M: i64> Modnum<M> {
-    pub fn new(x: i64) -> Modnum<M> {
+    pub fn new(x: i64) -> Self {
         Modnum { x: (x % M + M) % M }
     }
 }

@@ -4,7 +4,7 @@ pub struct DSU<T: Clone> {
     data: Vec<T>,
 }
 impl<T: Clone> DSU<T> {
-    pub fn new(n: usize, data_init: T) -> DSU<T> {
+    pub fn new(n: usize, data_init: T) -> Self {
         DSU {
             size: vec![1; n],
             par: (0..n).collect(),
